@@ -4,8 +4,8 @@
 <form *ngIf="contact">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" required name="name"
-           [(ngModel)]="contact.name" #spy="ngModel">
+    <input type="text" class="form-control" id="name" name="name"
+           [(ngModel)]="contact.name" #spy="ngModel" required>
     <div [hidden]="spy.valid || spy.pristine">Name is required</div>
   </div>
 
