@@ -12,6 +12,7 @@ import {Contact} from "../contact";
 export class ContactDetailsComponent implements OnInit {
 
   contact: Contact;
+  submitted = false;
 
   constructor(private route: ActivatedRoute,
               private contactService: ContactService) {
@@ -21,6 +22,10 @@ export class ContactDetailsComponent implements OnInit {
     this.route.params
       .switchMap((params: Params) => this.contactService.getContact(+params['id']))
       .subscribe(contact => this.contact = contact);
+  }
+
+  onSubmit() {
+    this.submitted = true;
   }
 }
 

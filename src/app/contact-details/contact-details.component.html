@@ -1,11 +1,11 @@
 <p>
   contact-details works!
 </p>
-<form *ngIf="contact">
+<form *ngIf="contact" (ngSubmit)="onSubmit()" #myForm="ngForm">
   <div class="form-group">
-    <label for="name">First Name</label>
-    <input type="text" class="form-control" id="name" name="name"
-           [(ngModel)]="contact.name" #name="ngModel"  required>
+    <label >First Name</label>
+    <input type="text" class="form-control" name="name"
+           [(ngModel)]="contact.name" #name="ngModel" required >
     <span [hidden]="name.valid || name.pristine">First Name is required</span>
   </div>
   <div class="form-group">
@@ -14,7 +14,8 @@
            [(ngModel)]="contact.lastName" #lastName="ngModel" required>
     <span [hidden]="lastName.valid || lastName.pristine">Last Name is required</span>
   </div>
-
-  <button type="submit" [disabled]="name.invalid || lastName.invalid">Submit</button>
-
+  <hr/>
+  {{myForm.valid}}
+  <hr/>
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
 </form>
