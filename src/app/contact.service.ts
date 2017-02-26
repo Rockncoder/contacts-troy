@@ -5,7 +5,7 @@ import {Contact} from './contact';
 export class ContactService {
 
   contacts: Contact[] = [
-    {'name': "Abel", 'lastName': "Apple", id: 1},
+    {name: "Abel", 'lastName': "Apple", id: 1},
     {name: "Ben", lastName: "Banana", id: 2},
     {name: "Chris", lastName: "Cucumber", id: 3},
     {name: "Denise", lastName: "Durian", id: 4},
@@ -14,8 +14,12 @@ export class ContactService {
     ];
 
 
-  getContacts(): Contact[]{
-    return this.contacts;
+  getContacts(): Promise<Contact[]>{
+    return Promise.resolve(this.contacts);
+  }
+
+  getContact(id: Number): Promise<Contact> {
+    return this.getContacts().then(contacts => contacts.find(contact => contact.id === id));
   }
 
   constructor() {

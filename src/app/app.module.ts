@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AboutComponent } from './about/about.component';
 
 import {ContactService} from './contact.service';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsListComponent,
-    AboutComponent
+    AboutComponent,
+    ContactDetailsComponent
   ],
   imports: [
     BrowserModule,

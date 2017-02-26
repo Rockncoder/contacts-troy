@@ -11,10 +11,15 @@ export class ContactsListComponent implements OnInit {
 
   contacts: Contact[];
 
-  constructor(private contactService: ContactService ) {
+  constructor(private contactService: ContactService) {
   }
 
   ngOnInit() {
-    this.contacts = this.contactService.getContacts()
+    // this.contacts = this.contactService.getContacts()
+    this.contactService.getContacts().then(contacts => this.contacts = contacts);
+
+    // this.contactService.getContacts().then(function (contacts) {
+    //   this.contacts = contacts;
+    // });
   }
 }

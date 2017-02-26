@@ -2,5 +2,7 @@
   contacts-list works!
 </p>
 <ul>
-  <li *ngFor="let contact of contacts">{{contact.lastName}}, {{contact.name}}</li>
+  <li *ngFor="let contact of contacts">
+    <a [routerLink]="['/contactdetails', contact.id]">{{contact.lastName}}, {{contact.name}}</a>
+  </li>
 </ul>
