@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactService} from '../contact.service';
 import {Contact} from '../contact';
+import {AngularFire, FirebaseListObservable} from "angularfire2";
 
 @Component({
   selector: 'app-contacts-list',
@@ -11,15 +12,15 @@ export class ContactsListComponent implements OnInit {
 
   contacts: Contact[];
 
-  constructor(private contactService: ContactService) {
+  items: FirebaseListObservable<any[]>;
+
+  constructor(private contactService: ContactService,
+              private af: AngularFire) {
   }
 
   ngOnInit() {
-    // this.contacts = this.contactService.getContacts()
     this.contactService.getContacts().then(contacts => this.contacts = contacts);
 
-    // this.contactService.getContacts().then(function (contacts) {
-    //   this.contacts = contacts;
-    // });
+    this.items = this.af.database.list('/contacts');
   }
 }
