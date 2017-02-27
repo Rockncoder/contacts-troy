@@ -1,27 +1,28 @@
 import {Injectable} from '@angular/core';
 import {Contact} from './contact';
+import {FirebaseListObservable, AngularFire, FirebaseObjectObservable} from "angularfire2";
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class ContactService {
 
-  contacts: Contact[] = [
-    {name: "Abel", 'lastName': "Apple", id: 1},
-    {name: "Ben", lastName: "Banana", id: 2},
-    {name: "Chris", lastName: "Cucumber", id: 3},
-    {name: "Denise", lastName: "Durian", id: 4},
-    {name: "Eric", lastName: "Eggplant", id: 5},
-    {name: "Frank", lastName: "Franks", id: 6}
-    ];
+  items: FirebaseListObservable<Contact[]>;
+  contacts: FirebaseListObservable<Contact[]>;
 
-
-  getContacts(): Promise<Contact[]>{
-    return Promise.resolve(this.contacts);
+  constructor(private af: AngularFire) {
+    this.items = af.database.list('/contacts');
   }
 
-  getContact(id: Number): Promise<Contact> {
-    return this.getContacts().then(contacts => contacts.find(contact => contact.id === id));
+  getItems() {
+    return this.items;
   }
 
-  constructor() {
+  getContacts(): FirebaseListObservable<Contact[]> {
+    return this.items;
+  }
+
+  getContact(id: Number): FirebaseObjectObservable<any> {
+    let myObj = this.af.database.object('/contacts/' + id);
+    return myObj;
   }
 }

@@ -1,28 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { MaterialModule} from '@angular/material';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import {MaterialModule} from '@angular/material';
 import 'hammerjs';
 
 import {AngularFireModule} from 'angularfire2';
 
-import { AppComponent } from './app.component';
-import { ContactsListComponent } from './contacts-list/contacts-list.component';
+import {AppComponent} from './app.component';
+import {ContactsListComponent} from './contacts-list/contacts-list.component';
 
-import { AppRoutingModule } from './app-routing/app-routing.module';
-import { AboutComponent } from './about/about.component';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {AboutComponent} from './about/about.component';
 
 import {ContactService} from './contact.service';
-import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import {ContactDetailsComponent} from './contact-details/contact-details.component';
+import {firebaseConfig} from './FirebaseConfig';
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyCks_pUoLT9q8MRA42WCbZLLtwdnuHIhY8",
-  authDomain: "contacts-troy.firebaseapp.com",
-  databaseURL: "https://contacts-troy.firebaseio.com",
-  storageBucket: "contacts-troy.appspot.com",
-  messagingSenderId: "816795509968"
-};
 
 @NgModule({
   declarations: [
@@ -42,4 +36,5 @@ export const firebaseConfig = {
   providers: [ContactService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

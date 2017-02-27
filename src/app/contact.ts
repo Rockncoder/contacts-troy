@@ -1,5 +1,7 @@
 export class Contact {
-  name: String;
+  firstName: String;
   lastName: String;
+  phone: String;
+  email?: String;
   id: Number;
 }

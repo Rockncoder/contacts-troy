@@ -1,31 +1,29 @@
-<p>
-  contact-details works!
-</p>
 <form *ngIf="contact" (ngSubmit)="onSubmit()" #myForm="ngForm">
   <div class="form-group">
     <md-input-container class="example-full-width">
       <input mdInput placeholder="First Name" type="text" class="form-control" name="name"
-             [(ngModel)]="contact.name" #name="ngModel" required>
+             [(ngModel)]="contact.firstName" #name="ngModel" required>
     </md-input-container>
-
-
-    <!--<label>First Name</label>-->
-    <!--<input type="text" class="form-control" name="name"-->
-           <!--[(ngModel)]="contact.name" #name="ngModel" required>-->
-    <span [hidden]="name.valid || name.pristine">First Name is required</span>
   </div>
   <div class="form-group">
-    <label for="lastName">Last Name</label>
-    <input type="text" class="form-control" id="lastName" name="lastName"
-           [(ngModel)]="contact.lastName" #lastName="ngModel" required>
-    <span [hidden]="lastName.valid || lastName.pristine">Last Name is required</span>
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="Last Name" type="text" class="form-control" name="lastName"
+             [(ngModel)]="contact.lastName" #lastName="ngModel" required>
+    </md-input-container>
   </div>
-  <hr/>
-  {{myForm.valid}}
-  <hr/>
-  <md-input-container class="example-full-width">
-    <input mdInput placeholder="Company (disabled)" disabled value="Google">
-  </md-input-container>
-  <hr/>
-  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+  <div class="form-group">
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="Phone" type="tel" class="form-control" name="phone"
+             [(ngModel)]="contact.phone" #lastName="ngModel" required>
+    </md-input-container>
+  </div>
+  <div class="form-group">
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="Last Name" type="email" class="form-control" name="email"
+             [(ngModel)]="contact.email" #lastName="ngModel">
+    </md-input-container>
+  </div>
+  <button md-raised-button type="button" color="accent" (click)="goBack()">Back</button>
+  <button md-raised-button type="submit" color="primary" [disabled]="myForm.invalid || myForm.pristine">Submit</button>
 </form>
+
