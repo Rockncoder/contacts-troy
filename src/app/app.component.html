@@ -1,8 +1,27 @@
-<h1>
-  {{title}}
-</h1>
-<nav>
-  <a routerLink="/contacts" routerLinkActive="active">Contacts</a>
-  <a routerLink="/about" routerLinkActive="bob">About</a>
-</nav>
-<router-outlet></router-outlet>
+<md-sidenav-container>
+
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+
+
+    <md-card >
+      <a md-button routerLink="/about" routerLinkActive="bob">About</a>
+    </md-card>
+    <md-card >
+      <a md-button routerLink="/contacts" routerLinkActive="active">Contacts</a>
+    </md-card>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button md-button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+    <h1>
+      {{title}}
+    </h1>
+  </md-toolbar>
+
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-container>

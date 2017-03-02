@@ -1,5 +1,6 @@
-<md-list>
-  <md-list-item *ngFor="let contact of contacts | async">
-    <a [routerLink]="['/contactdetails', contact.$key]">{{contact.lastName}}, {{contact.firstName}}</a>
-  </md-list-item>
-</md-list>
+<md-card *ngFor="let contact of contacts | async">
+  <button md-button class="app-icon-button">
+    <i class="material-icons delete">delete</i>
+  </button>
+  <a [routerLink]="['/contactdetails', contact.$key]">{{contact.lastName}}, {{contact.firstName}}</a>
+</md-card>
