@@ -1,6 +1,16 @@
 # ContactsTroy
 
+This is app we built for the Angular 2 weekend workshop. 
+
+For more tutorials like this be sure to follow [@therockncoder](https://twitter.com/therockncoder).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
+
+## JavaScript Training
+
+I am working with the good folks at [PeopleSpace](http://peoplespace.us/javascript/) in Irvine, CA. Join us at one of our affordable weekend workshops.
+
+http://peoplespace.us/javascript/
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -27,6 +37,17 @@ Before running the tests make sure you are serving the app via `ng serve`.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 
+
 ## Firebase
 
-Updated Contacts class (contact.ts) to include all of the fields we add towards the end of the class.
+There is one missing file, src/app/FirebaseConfig.ts. It contains all of your firebase configuration information.
+
+```
+export const firebaseConfig = {
+  apiKey: "xxxxxxxxxxxxxcxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  authDomain: "xxxxxxxxx.firebaseapp.com",
+  databaseURL: "https://xxxxxxxxxxx.firebaseio.com",
+  storageBucket: "xxxxxxxxxxxxxx.appspot.com",
+  messagingSenderId: "xxxxxxxxxxx"
+};
+```
